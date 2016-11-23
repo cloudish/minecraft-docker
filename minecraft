@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TMUX_SESSION=minecraft
+MINECRAFT_STARTUP_SCRIPT=""
 MINECRAFT_HOME="/opt/minecraft"
 MINECRAFT_SRC="/usr/src/minecraft"
 MINECRAFT_VERSION=${MINECRAFT_VERSION:-1.8.8}
@@ -108,6 +109,15 @@ run_minecraft() {
 
     PARAMS=$@
     MINECRAFT_COMMAND="gosu minecraft java $MINECRAFT_OPTS -jar $MINECRAFT_HOME/$MINECRAFT_STARTUP_JAR nogui ${PARAMS[@]}"
+
+    if [ "$MINECRAFT_STARTUP_SCRIPT == "" ]; then
+        PARAMS=$@
+        MINECRAFT_COMMAND="gosu minecraft java $MINECRAFT_OPTS -jar $MINECRAFT_HOME/$MINECRAFT_STARTUP_JAR nogui ${PARAMS[@]}"   
+        echo "We are in JAR mode!"
+    else
+        MINECRAFT_COMMAND="gosu minecraft $MINECRAFT_HOME/$MINECRAFT_STARTUP_SCRIPT"
+        echo "We are in SCRIPT mode!"
+    fi
 
     echo "Extra parameters: ${PARAMS[@]}"
 
