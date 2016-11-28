@@ -110,7 +110,7 @@ run_minecraft() {
     PARAMS=$@
     MINECRAFT_COMMAND="gosu minecraft java $MINECRAFT_OPTS -jar $MINECRAFT_HOME/$MINECRAFT_STARTUP_JAR nogui ${PARAMS[@]}"
 
-    if [ "$MINECRAFT_STARTUP_SCRIPT" == "" ]; then
+    if [ -z "$MINECRAFT_STARTUP_SCRIPT" ]; then
         PARAMS=$@
         MINECRAFT_COMMAND="gosu minecraft java $MINECRAFT_OPTS -jar $MINECRAFT_HOME/$MINECRAFT_STARTUP_JAR nogui ${PARAMS[@]}"   
         echo "We are in JAR mode!"
