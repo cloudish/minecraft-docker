@@ -1,5 +1,5 @@
 FROM java:7
-MAINTAINER John Paul Alcala jp@jpalcala.com
++MAINTAINER Justin Barone https://github.com/cloudish https://hub.docker.com/u/zoltanthedestroyer
 
 # Taken from Postgres Official Dockerfile.
 # grab gosu for easy step-down from root
