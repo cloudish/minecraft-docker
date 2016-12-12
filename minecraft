@@ -80,6 +80,39 @@ first_run() {
         echo "view-distance=${VIEW_DISTANCE:-10}" >> $MINECRAFT_HOME/server.properties
         echo "generate-structures=${GENERATE_STRUCTURES:-true}" >> $MINECRAFT_HOME/server.properties
         echo "motd=${MOTD:-A Minecraft Server}" >> $MINECRAFT_HOME/server.properties
+    else
+        [[ -n $GENERATOR_SETTINGS ]] && sed -i "/generator-settings=/c\generator-settings=$GENERATOR_SETTINGS" $MINECRAFT_HOME/server.properties
+        [[ -n $OP_PERMISSION_LEVEL ]] && sed -i "/op-permission-level=/c\op-permission-level=$OP_PERMISSION_LEVEL" $MINECRAFT_HOME/server.properties
+        [[ -n $ALLOW_NETHER ]] && sed -i "/allow-nether=/c\allow-nether=$ALLOW_NETHER" $MINECRAFT_HOME/server.properties
+        [[ -n $LEVEL_NAME ]] && sed -i "/level-name=/c\level-name=$LEVEL_NAME" $MINECRAFT_HOME/server.properties
+        [[ -n $ENABLE_QUERY ]] && sed -i "/enable-query=/c\enable-query=$ENABLE_QUERY" $MINECRAFT_HOME/server.properties
+        [[ -n $ALLOW_FLIGHT ]] && sed -i "/allow-flight=/c\allow-flight=$ALLOW_FLIGHT" $MINECRAFT_HOME/server.properties
+        [[ -n $ANNOUNCE_PLAYER_ACHIEVEMENTS ]] && sed -i "/announce-player-achievements=/c\announce-player-achievements=$ANNOUNCE_PLAYER_ACHIEVEMENTS" $MINECRAFT_HOME/server.properties
+        [[ -n $SERVER_PORT ]] && sed -i "/server-port=/c\server-port=$SERVER_PORT" $MINECRAFT_HOME/server.properties
+        [[ -n $LEVEL_TYPE ]] && sed -i "/level-type=/c\level-type=$LEVEL_TYPE" $MINECRAFT_HOME/server.properties
+        [[ -n $ENABLE_RCON ]] && sed -i "/enable-rcon=/c\enable-rcon=$ENABLE_RCON" $MINECRAFT_HOME/server.properties
+        [[ -n $FORCE_GAMEMODE ]] && sed -i "/force-gamemode=/c\force-gamemode=$FORCE_GAMEMODE" $MINECRAFT_HOME/server.properties
+        [[ -n $LEVEL_SEED ]] && sed -i "/level-seed=/c\level-seed=$LEVEL_SEED" $MINECRAFT_HOME/server.properties
+        [[ -n $SERVER_IP ]] && sed -i "/server-ip=/c\server-ip=$SERVER_IP" $MINECRAFT_HOME/server.properties
+        [[ -n $MAX_BUILD_HEIGHT ]] && sed -i "/max-build-height=/c\max-build-height=$MAX_BUILD_HEIGHT" $MINECRAFT_HOME/server.properties
+        [[ -n $SPAWN_NPCS ]] && sed -i "/spawn-npcs=/c\spawn-npcs=$SPAWN_NPCS" $MINECRAFT_HOME/server.properties
+        [[ -n $WHITE_LIST ]] && sed -i "/white-list=/c\white-list=$WHITE_LIST" $MINECRAFT_HOME/server.properties
+        [[ -n $SPAWN_ANIMALS ]] && sed -i "/spawn-animals=/c\spawn-animals=$SPAWN_ANIMALS" $MINECRAFT_HOME/server.properties
+        [[ -n $HARDCORE ]] && sed -i "/hardcore=/c\hardcore=$HARDCORE" $MINECRAFT_HOME/server.properties
+        [[ -n $SNOOPER_ENABLED ]] && sed -i "/snooper-enabled=/c\snooper-enabled=$SNOOPER_ENABLED" $MINECRAFT_HOME/server.properties
+        [[ -n $ONLINE_MODE ]] && sed -i "/online-mode=/c\online-mode=$ONLINE_MODE" $MINECRAFT_HOME/server.properties
+        [[ -n $RESOURCE_PACK ]] && sed -i "/resource-pack=/c\resource-pack=$RESOURCE_PACK" $MINECRAFT_HOME/server.properties
+        [[ -n $PVP ]] && sed -i "/pvp=/c\pvp=$PVP" $MINECRAFT_HOME/server.properties
+        [[ -n $DIFFICULTY ]] && sed -i "/difficulty=/c\difficulty=$DIFFICULTY" $MINECRAFT_HOME/server.properties
+        [[ -n $ENABLE_COMMAND_BLOCK ]] && sed -i "/enable-command-block=/c\enable-command-block=$ENABLE_COMMAND_BLOCK" $MINECRAFT_HOME/server.properties
+        [[ -n $GAMEMODE ]] && sed -i "/gamemode=/c\gamemode=$GAMEMODE" $MINECRAFT_HOME/server.properties
+        [[ -n $PLAYER_IDLE_TIMEOUT ]] && sed -i "/player-idle-timeout=/c\player-idle-timeout=$PLAYER_IDLE_TIMEOUT" $MINECRAFT_HOME/server.properties
+        [[ -n $MAX_PLAYERS ]] && sed -i "/max-players=/c\max-players=$MAX_PLAYERS" $MINECRAFT_HOME/server.properties
+        [[ -n $SPAWN_MONSTERS ]] && sed -i "/spawn-monsters=/c\spawn-monsters=$SPAWN_MONSTERS" $MINECRAFT_HOME/server.properties
+        [[ -n $GENERATE_STRUCTURES ]] && sed -i "/generate-structures=/c\generate-structures=$GENERATE_STRUCTURES" $MINECRAFT_HOME/server.properties
+        [[ -n $VIEW_DISTANCE ]] && sed -i "/view-distance=/c\view-distance=$VIEW_DISTANCE" $MINECRAFT_HOME/server.properties
+        [[ -n $SPAWN_PROTECTION ]] && sed -i "/spawn-protection=/c\spawn-protection=$SPAWN_PROTECTION" $MINECRAFT_HOME/server.properties
+        [[ -n $MOTD ]] && sed -i "/motd=/c\motd=$MOTD" $MINECRAFT_HOME/server.properties
     fi
 
     # Copy world template if there is no world yet.
