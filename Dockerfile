@@ -1,4 +1,4 @@
-FROM java:8
+FROM java:7
 MAINTAINER Justin Barone https://github.com/cloudish https://hub.docker.com/u/zoltanthedestroyer
 
 # Taken from Postgres Official Dockerfile.
